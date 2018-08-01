@@ -1,0 +1,19 @@
+.header {
+  height: 75px;
+  border: 0;
+  box-shadow: none;
+  margin-top: -20px;
+}
+
+.all_fields {
+  background-color: #20B2AA;
+  left: 0;
+  width: 100%;
+}
+
+.logo-img {
+  width: 7em;
+  margin-top: 2em;
+  position: absolute;
+  margin-left: -50%;
+}
