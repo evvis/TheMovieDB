@@ -1,0 +1,42 @@
+.container {
+  padding-top: 15px;
+}
+
+.all_fields {
+  background-color: #20B2AA;
+  left: 0;
+  width: 100%;
+}
+
+.nav-wrapper {
+  background-color: #20B2AA;
+}
+
+.content-wrapper {
+  margin: 0 auto;
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 150px;
+}
+
+.content {
+  width: 100%;
+}
+
+.brand-logo {
+  color: lightgrey;
+  position: absolute;
+  right: 50%;
+  margin-right: 25%;
+  margin-top: 2.75%;
+  width: 22%;
+  height: auto;
+  font-family: Arial,sans-serif;
+  font-size: 2em;
+}
+
+.pagination {
+  position: absolute;
+  margin-left: 45%;
+  margin-right: -50%;
+}
