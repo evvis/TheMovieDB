@@ -7,18 +7,20 @@
             <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">star</i></a>
             <div *ngIf="!movie.poster_path" >Load image</div>
           </div>
-          <span class="card-title">
-            {{ movie.title }}
-          </span>
-          <div>
-            <span>Popularity</span>
-            : {{ movie.popularity  | number : '1.0-1' }}
-            <br>
-            <span>Vote count</span>
-            : {{ movie.vote_count }}
-          </div>
-          <div>
-            {{ movie.release_date}}
+          <div class="description">
+            <span class="card-title">
+              {{ movie.title }}
+            </span>
+            <div>
+              <span>Popularity</span>
+              : {{ movie.popularity  | number : '1.0-1' }}
+              <br>
+              <span>Vote count</span>
+              : {{ movie.vote_count }}
+            </div>
+            <div>
+              {{ movie.release_date}}
+            </div>
           </div>
         </div>
       </div>
