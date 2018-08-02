@@ -1,0 +1,12 @@
+.row {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.card {
+  height: 27.875em;
+}
+
+.card-title {
+  font-size: 15px;
+}
