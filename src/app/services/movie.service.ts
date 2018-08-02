@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
-import {Movie} from './movie';
+//import {Movie} from './movie';
 import 'rxjs/add/operator/map';
 
 @Injectable()
@@ -21,6 +21,6 @@ export class MovieService {
 
   private extractData(res: Response) {
     let body = res.json();
-    return body.results;
+      return body.results;
   }
 }

@@ -3,6 +3,10 @@
   margin-right: 10px;
 }
 
+.row:after {
+  content: normal;
+}
+
 .card {
   height: 27.875em;
 }
@@ -14,4 +18,7 @@
 .description {
   margin-left: 5px;
   margin-top: 18px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
