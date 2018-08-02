@@ -5,9 +5,9 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
 import { HeaderComponent } from './header/header.component';
-import { MovieListComponent } from './movieList/movieList.component';
+import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieService } from './services/movie.service';
-import { MovieCardComponent } from './movieList/movieCard/movieCard.component';
+import { MovieCardComponent } from './movie-list/movie-card/movie-card.component';
 
 
 @NgModule({
