@@ -3,18 +3,27 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { HttpModule } from '@angular/http';
 import { HeaderComponent } from './header/header.component';
+import { MovieListComponent } from './movie-list/movie-list.component';
+import { MovieService } from './services/movie.service';
+import { MovieCardComponent } from './movie-list/movie-card/movie-card.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    MovieListComponent,
+    MovieCardComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpModule
   ],
-  providers: [],
+  providers: [
+    MovieService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

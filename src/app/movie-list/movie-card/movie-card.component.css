@@ -1,0 +1,20 @@
+.row {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+.row:after {
+  content: normal;
+}
+
+.card-title {
+  font-size: 15px;
+}
+
+.description {
+  margin-left: 5px;
+  margin-top: 18px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
