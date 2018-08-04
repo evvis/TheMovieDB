@@ -23,4 +23,9 @@ export class MovieListComponent implements OnInit {
   getMovies() {
     this.movieList = this.movieService.getMovies();
   }
+
+  search(searchQuery: string) {
+    console.log(searchQuery);
+    // TODO: update the list by service with search query instead of consol.log
+  }
 }

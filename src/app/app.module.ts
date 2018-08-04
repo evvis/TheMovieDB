@@ -8,12 +8,14 @@ import { HeaderComponent } from './header/header.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieService } from './services/movie.service';
 import { MovieCardComponent } from './movie-list/movie-card/movie-card.component';
+import { SearchComponent } from './search/search.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
+    SearchComponent,
     MovieListComponent,
     MovieCardComponent
   ],
