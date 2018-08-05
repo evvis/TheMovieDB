@@ -34,6 +34,5 @@ export class MovieListComponent implements OnInit {
         response => {
           this.movieList = response;
         });
-    console.log(searchValue);
   }
 }

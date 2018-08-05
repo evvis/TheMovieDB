@@ -27,7 +27,6 @@ export class MovieService {
 
   private extractData(res: Response) {
     let body = res.json();
-      console.log(res.json());
       return body.results;
   }
 }
