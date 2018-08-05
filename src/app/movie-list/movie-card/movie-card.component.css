@@ -7,6 +7,22 @@
   content: normal;
 }
 
+.btn-floating.halfway-fab {
+  bottom: 90px;
+}
+
+.card-image {
+  overflow: hidden;
+  height: 250px;
+  display: inline-block;
+  background-size: cover;
+}
+
+.card-image > img {
+  width: 100%;
+  height: auto;
+}
+
 .card-title {
   font-size: 15px;
 }
