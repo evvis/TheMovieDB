@@ -11,10 +11,10 @@ export class MovieService {
     private http: Http) {
   }
 
-  public getMovies() {
-    let moviesUrl = `${this.url}movie/popular?api_key=${this.apiKey}&language=en-US&page=1`;
-
-    return this.http.get(moviesUrl)
+  public getMovies(page: number) {
+    let movieUrl = `${this.url}movie/popular?api_key=${this.apiKey}&language=en-US&page=${page}`;
+      console.log('this page ' + page);
+    return this.http.get(movieUrl)
      .map(this.extractData);
   }
 

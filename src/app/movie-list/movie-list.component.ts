@@ -10,6 +10,7 @@ import { MovieService } from '../services/movie.service';
 export class MovieListComponent implements OnInit {
 
   movieList: Observable<Movie[]>;
+  page: number;
 
   constructor(
     private movieService: MovieService
@@ -17,14 +18,15 @@ export class MovieListComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.getMovies();
+    this.getMovies(this.page);
   }
 
-  getMovies() {
-    this.movieService.getMovies()
+  getMovies(page: number) {
+    this.movieService.getMovies(page)
       .subscribe(
         response => {
           this.movieList = response;
+          console.log(page);
         });
   }
 }
