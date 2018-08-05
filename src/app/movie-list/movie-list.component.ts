@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable} from 'rxjs/Observable';
-import {MovieService} from '../services/movie.service';
+import { Observable } from 'rxjs/Observable';
+import { MovieService } from '../services/movie.service';
 
 @Component({
   selector: 'app-movie-list',
@@ -21,6 +21,10 @@ export class MovieListComponent implements OnInit {
   }
 
   getMovies() {
-    this.movieList = this.movieService.getMovies();
+    this.movieService.getMovies()
+      .subscribe(
+        response => {
+          this.movieList = response;
+        });
   }
 }

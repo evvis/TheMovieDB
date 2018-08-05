@@ -1,6 +1,7 @@
 interface Movie {
     page: number;
     total_pages: number;
+    total_results: number;
     adult: boolean;
     backdrop_path: string;
     budget: number;
