@@ -18,6 +18,13 @@ export class MovieService {
      .map(this.extractData);
   }
 
+  public searchMovie(searchValue: string) {
+    let searchUrl = `${this.url}search/movie?api_key=${this.apiKey}&language=en-US&query=${searchValue}&page=1`;
+
+    return this.http.get(searchUrl)
+      .map(this.extractData);
+  }
+
   private extractData(res: Response) {
     let body = res.json();
       console.log(res.json());

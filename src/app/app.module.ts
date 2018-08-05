@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-
+import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { HttpModule } from '@angular/http';
 import { HeaderComponent } from './header/header.component';
@@ -9,6 +8,8 @@ import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieService } from './services/movie.service';
 import { MovieCardComponent } from './movie-list/movie-card/movie-card.component';
 import { PaginationComponent } from './pagination/pagination.component';
+import { MovieSearchComponent } from './movie-search/movie-search.component';
+
 
 
 @NgModule({
@@ -17,11 +18,15 @@ import { PaginationComponent } from './pagination/pagination.component';
     HeaderComponent,
     MovieListComponent,
     MovieCardComponent,
-    PaginationComponent
+    PaginationComponent,
+    MovieSearchComponent,
   ],
   imports: [
     BrowserModule,
-    HttpModule
+    HttpModule,
+    FormsModule,
+  ],
+  exports: [
   ],
   providers: [
     MovieService

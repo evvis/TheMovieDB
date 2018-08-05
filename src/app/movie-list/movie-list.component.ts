@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { MovieService } from '../services/movie.service';
+import {Component, OnInit, Output} from '@angular/core';
+import {Observable} from 'rxjs/Observable';
+import {MovieService} from '../services/movie.service';
+
 
 @Component({
   selector: 'app-movie-list',
@@ -27,6 +28,14 @@ export class MovieListComponent implements OnInit {
         response => {
           this.movieList = response;
           console.log(page);
+        });
+  }
+
+  searchMovie(searchValue: string){
+    this.movieService.searchMovie(searchValue)
+      .subscribe(
+        response => {
+          this.movieList = response;
         });
   }
 }
