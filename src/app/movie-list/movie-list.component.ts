@@ -27,7 +27,6 @@ export class MovieListComponent implements OnInit {
       .subscribe(
         response => {
           this.movieList = response;
-          console.log(this.movieList);
         });
   }
 
