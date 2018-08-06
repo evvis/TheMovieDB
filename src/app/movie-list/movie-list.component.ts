@@ -8,9 +8,10 @@ import {Movie} from '../services/movie';
   templateUrl: './movie-list.component.html',
   styleUrls: ['./movie-list.component.css']
 })
+
 export class MovieListComponent implements OnInit {
 
-  movieList: Observable<Movie[]>;
+  movieList: Movie[];
 
   constructor(
     private movieService: MovieService
@@ -26,6 +27,7 @@ export class MovieListComponent implements OnInit {
       .subscribe(
         response => {
           this.movieList = response;
+          console.log(this.movieList);
         });
   }
 
