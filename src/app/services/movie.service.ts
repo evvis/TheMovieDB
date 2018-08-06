@@ -1,6 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
+import {Observable} from "rxjs/Observable";
 
 @Injectable()
 export class MovieService {
@@ -13,15 +14,16 @@ export class MovieService {
 
   public getMovies() {
     let moviesUrl = `${this.url}movie/popular?api_key=${this.apiKey}&language=en-US&page=1`;
-
-    return this.http.get(moviesUrl)
-     .map(this.extractData);
+    return this.getDataByUrl(moviesUrl);
   }
 
   public searchMovie(searchValue: string) {
     let searchUrl = `${this.url}search/movie?api_key=${this.apiKey}&language=en-US&query=${searchValue}&page=1`;
+    return this.getDataByUrl(searchUrl);
+  }
 
-    return this.http.get(searchUrl)
+  private getDataByUrl(url: string): Observable<Movie[]>{
+    return this.http.get(url)
       .map(this.extractData);
   }
 
