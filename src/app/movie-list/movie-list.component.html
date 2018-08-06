@@ -1,3 +1,9 @@
-<app-movie-search (searchValue)="searchMovie($event)"></app-movie-search>
-<app-movie-card *ngFor="let movie of movieList" [movie]="movie"></app-movie-card>
+<app-movie-search (searchValue)="getMovies($event)"></app-movie-search>
+<div *ngIf="movieList.length !== 0">
+  <app-movie-card *ngFor="let movie of movieList" [movie]="movie"></app-movie-card>
+</div>
+<div class="center-align" *ngIf="movieList.length === 0">
+  No Movies found
+</div>
+
 
