@@ -1,7 +1,8 @@
 import {Injectable} from '@angular/core';
 import {Http, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
-import {Observable} from "rxjs/Observable";
+import {Observable} from 'rxjs/Observable';
+import {Movie} from './movie';
 
 @Injectable()
 export class MovieService {
@@ -12,12 +13,12 @@ export class MovieService {
     private http: Http) {
   }
 
-  public getMovies() {
+  public getMovies(): Observable<Movie[]> {
     let moviesUrl = `${this.url}movie/popular?api_key=${this.apiKey}&language=en-US&page=1`;
     return this.getDataByUrl(moviesUrl);
   }
 
-  public searchMovie(searchValue: string) {
+  public searchMovie(searchValue: string): Observable<Movie[]> {
     let searchUrl = `${this.url}search/movie?api_key=${this.apiKey}&language=en-US&query=${searchValue}&page=1`;
     return this.getDataByUrl(searchUrl);
   }
