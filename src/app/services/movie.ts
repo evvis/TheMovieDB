@@ -1,4 +1,4 @@
-interface Movie {
+export interface Movie {
     page: number;
     total_pages: number;
     total_results: number;
