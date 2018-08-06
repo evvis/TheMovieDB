@@ -11,7 +11,7 @@ import {Movie} from '../services/movie';
 
 export class MovieListComponent implements OnInit {
 
-  movieList: Movie[];
+  movieList: Movie[] = [];
 
   constructor(
     private movieService: MovieService
@@ -22,16 +22,8 @@ export class MovieListComponent implements OnInit {
     this.getMovies();
   }
 
-  getMovies() {
-    this.movieService.getMovies()
-      .subscribe(
-        response => {
-          this.movieList = response;
-        });
-  }
-
-  searchMovie(searchValue: string){
-    this.movieService.searchMovie(searchValue)
+  getMovies(searchValue?: string) {
+    this.movieService.getMovies(searchValue)
       .subscribe(
         response => {
           this.movieList = response;

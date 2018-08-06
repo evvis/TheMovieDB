@@ -13,17 +13,17 @@ export class MovieService {
     private http: Http) {
   }
 
-  public getMovies(): Observable<Movie[]> {
+  public getMovies(searchValue?: string): Observable<Movie[]> {
     let moviesUrl = `${this.url}movie/popular?api_key=${this.apiKey}&language=en-US&page=1`;
 
-    return this.http.get(moviesUrl)
-     .map(this.extractData);
+    if (searchValue) {
+      moviesUrl = `${this.url}search/movie?api_key=${this.apiKey}&language=en-US&query=${searchValue}&page=1`;
+    }
+    return this.getDataByUrl(moviesUrl);
   }
 
-  public searchMovie(searchValue: string): Observable<Movie[]> {
-    let searchUrl = `${this.url}search/movie?api_key=${this.apiKey}&language=en-US&query=${searchValue}&page=1`;
-
-    return this.http.get(searchUrl)
+  private getDataByUrl(url: string): Observable<Movie[]>{
+    return this.http.get(url)
       .map(this.extractData);
   }
 
