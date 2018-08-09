@@ -1,31 +1,21 @@
-<!--<ul class="pagination">-->
-  <!--<li class="disabled"><a href="#!"><i class="material-icons">first_page</i></a></li>-->
-  <!--<li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>-->
-  <!--<li class="active"><a href="#!">1</a></li>-->
-  <!--<li class="waves-effect"><a href="#!">2</a></li>-->
-  <!--<li class="waves-effect"><a href="#!">3</a></li>-->
-  <!--<li class="waves-effect"><a href="#!">4</a></li>-->
-  <!--<li class="waves-effect"><a href="#!">5</a></li>-->
-  <!--<li class="waves-effect" (click)="onChange($event)"><a href="#!"><i class="material-icons">chevron_right</i></a></li>-->
-  <!--<li class="disabled"><a href="#!"><i class="material-icons">last_page</i></a></li>-->
-<!--</ul>-->
-
-
- <!--pager-->
-<!--<ul *ngIf="pager.pages && pager.pages.length" class="pagination">-->
-  <!--<li [ngClass]="{disabled:pager.currentPage === 1}">-->
-    <!--<a (click)="setPage(1)">First</a>-->
-  <!--</li>-->
-  <!--<li [ngClass]="{disabled:pager.currentPage === 1}">-->
-    <!--<a (click)="setPage(pager.currentPage - 1)">Previous</a>-->
-  <!--</li>-->
-  <!--<li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">-->
-    <!--<a (click)="setPage(page)">{{page}}</a>-->
-  <!--</li>-->
-  <!--<li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">-->
-    <!--<a (click)="setPage(pager.currentPage + 1)">Next</a>-->
-  <!--</li>-->
-  <!--<li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">-->
-    <!--<a (click)="setPage(pager.totalPages)">Last</a>-->
-  <!--</li>-->
-<!--</ul>-->
+<ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+  <li [ngClass]="{disabled:pager.currentPage === 1}" class="disabled">
+    <a (click)="setPage($event, 1)">
+      <i class="material-icons">first_page</i></a>
+  </li>
+  <li [ngClass]="{disabled:pager.currentPage === 1}">
+    <a (click)="setPage($event, pager.currentPage - 1)">
+      <i class="material-icons">chevron_left</i></a>
+  </li>
+  <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}" class="active waves-effect">
+    <a (click)="setPage($event, page)">{{page}}</a>
+  </li>
+  <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="waves-effect">
+    <a (click)="setPage($event, pager.currentPage + 1)">
+      <i class="material-icons">chevron_right</i></a>
+  </li>
+  <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="waves-effect">
+    <a (click)="setPage($event, pager.totalPages)">
+      <i class="material-icons">last_page</i></a>
+  </li>
+</ul>

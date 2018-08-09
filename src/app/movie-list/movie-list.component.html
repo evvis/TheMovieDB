@@ -1,29 +1,5 @@
-<app-movie-search (searchValue)="getMovies($event)"></app-movie-search>
-
-<div>
-  <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
-    <li [ngClass]="{disabled:pager.currentPage === 1}" class="disabled">
-      <a (click)="setPage(1)">
-        <i class="material-icons">first_page</i>First</a>
-    </li>
-    <li [ngClass]="{disabled:pager.currentPage === 1}">
-      <a (click)="setPage(pager.currentPage - 1)">
-        <i class="material-icons">chevron_left</i>Prev</a>
-    </li>
-    <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}" class="active waves-effect">
-      <a (click)="setPage(page)">{{page}}</a>
-    </li>
-    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="waves-effect">
-      <a (click)="setPage(pager.currentPage + 1)">
-        <i class="material-icons">chevron_right</i>Next</a>
-    </li>
-    <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}" class="waves-effect">
-      <a (click)="setPage(pager.totalPages)">
-        <i class="material-icons">last_page</i>Last</a>
-    </li>
-  </ul>
-</div>
-
+<app-movie-search (searchValue)="setSearchValue($event)"></app-movie-search>
+<app-pagination (pageChange)="setPage($event)"></app-pagination>
 <div>
   {{page}} of {{total_pages}}
 </div>
@@ -33,7 +9,7 @@
 <div class="center-align" *ngIf="movieList.length === 0">
   No Movies found
 </div>
-<!--<app-pagination (page)="setPage($event)"></app-pagination>-->
+
 
 
 <!--<ul class="pagination">-->
