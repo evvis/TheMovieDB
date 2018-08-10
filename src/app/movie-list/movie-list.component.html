@@ -1,7 +1,7 @@
 <app-movie-search (searchValue)="setSearchValue($event)"></app-movie-search>
-<app-pagination (pageChange)="setPage($event)"></app-pagination>
-<div>
-  {{page}} of {{total_pages}}
+<app-pagination [totalPages]="totalPages" (pageChange)="setPage($event)" class="center-align"></app-pagination>
+<div class="center-align">
+  {{page}} of {{totalPages}}
 </div>
 <div *ngIf="movieList.length !== 0">
   <app-movie-card *ngFor="let movie of movieList" [movie]="movie"></app-movie-card>
@@ -9,19 +9,5 @@
 <div class="center-align" *ngIf="movieList.length === 0">
   No Movies found
 </div>
-
-
-
-<!--<ul class="pagination">-->
-<!--<li class="disabled"><a href="#!"><i class="material-icons">first_page</i></a></li>-->
-<!--<li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>-->
-<!--<li class="active"><a href="#!">1</a></li>-->
-<!--<li class="waves-effect"><a href="#!">2</a></li>-->
-<!--<li class="waves-effect"><a href="#!">3</a></li>-->
-<!--<li class="waves-effect"><a href="#!">4</a></li>-->
-<!--<li class="waves-effect"><a href="#!">5</a></li>-->
-<!--<li class="waves-effect" (click)="onChange($event)"><a href="#!"><i class="material-icons">chevron_right</i></a></li>-->
-<!--<li class="disabled"><a href="#!"><i class="material-icons">last_page</i></a></li>-->
-<!--</ul>-->
 
 

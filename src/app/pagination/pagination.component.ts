@@ -9,31 +9,28 @@ import * as _ from 'underscore';
 export class PaginationComponent implements OnInit {
 
   pager: any = {};
-  @Input() total_pages: number;
+  @Input() totalPages: number;
   @Input() page: number;
 
   constructor() { }
 
-  @Output()
-  pageChange: EventEmitter<number> = new EventEmitter();
+  @Output() pageChange: EventEmitter<number> = new EventEmitter<number>();
 
   ngOnInit() {
-    this.setPage(event, this.page, this.total_pages);
-      console.log(this.page);
+    this.setPage(event, this.page, this.totalPages);
   }
 
-  setPage(event: Event, page: number, total_pages: number) {
+  setPage(event: Event, page: number, totalPages: number) {
     this.pageChange.emit(page);
 
     if (page < 1 || page > this.pager.totalPages) {
       return;
     }
-    this.pager = this.getPager(page, total_pages);
-      console.log(this.pager);
+    this.pager = this.getPager(page, this.totalPages);
   }
-  getPager(page: number = 1, total_pages: number){
-    let currentPage = page;
-    let totalPages = total_pages;
+
+  getPager(page: number = 1, totalPages: number) {
+    const currentPage = page;
 
     let startPage: number, endPage: number;
 
@@ -61,5 +58,4 @@ export class PaginationComponent implements OnInit {
       pages: pages
     };
   }
-
 }
