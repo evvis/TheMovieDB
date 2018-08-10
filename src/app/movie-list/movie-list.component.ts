@@ -15,7 +15,6 @@ export class MovieListComponent implements OnInit {
   page: number;
   searchValue: string;
   totalPages: number;
-  totalResults: number;
 
   constructor(private movieService: MovieService) {
   }
@@ -31,7 +30,6 @@ export class MovieListComponent implements OnInit {
           this.movieList = response['results'];
           this.totalPages = response['total_pages'];
           this.page = response['page'];
-          this.totalResults = response['total_results'];
         });
   }
 

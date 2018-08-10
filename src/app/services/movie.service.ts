@@ -1,5 +1,5 @@
 import {Injectable} from '@angular/core';
-import {Http, Response} from '@angular/http';
+import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
 import {Movie} from './movie';
@@ -23,7 +23,7 @@ export class MovieService {
     return this.getDataByUrl(moviesUrl);
   }
 
-  private getDataByUrl(url: string): Observable<Movie[]>{
+  private getDataByUrl(url: string): Observable<Movie[]> {
     return this.http.get(url)
       .map((res) => { return res.json() });
   }
