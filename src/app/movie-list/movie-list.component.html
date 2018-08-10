@@ -1,5 +1,5 @@
-<app-movie-search *ngIf="page && totalPages" (searchValue)="setSearchValue($event)"></app-movie-search>
-<app-pagination class="center-align" (pageChange)="setPage($event)" [totalPages]="totalPages" [page]="page"></app-pagination>
+<app-movie-search (searchValue)="setSearchValue($event)"></app-movie-search>
+<app-pagination class="center-align" *ngIf="page && totalPages" (pageChange)="setPage($event)" [totalPages]="totalPages" [page]="page"></app-pagination>
 <div *ngIf="movieList.length !== 0">
   <app-movie-card *ngFor="let movie of movieList" [movie]="movie"></app-movie-card>
 </div>
