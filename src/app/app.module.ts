@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { MovieListComponent } from './movie-list/movie-list.component';
 import { MovieService } from './services/movie.service';
 import { MovieCardComponent } from './movie-list/movie-card/movie-card.component';
+import { PaginationComponent } from './pagination/pagination.component';
 import { MovieSearchComponent } from './movie-search/movie-search.component';
 
 
@@ -17,7 +18,8 @@ import { MovieSearchComponent } from './movie-search/movie-search.component';
     HeaderComponent,
     MovieListComponent,
     MovieCardComponent,
-    MovieSearchComponent
+    PaginationComponent,
+    MovieSearchComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,6 @@
+.pagination li.active {
+  background-color: #20B2AA;
+}
+a {
+  cursor: pointer;
+}

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs/Observable';
 import {MovieService} from '../services/movie.service';
 import {Movie} from '../services/movie';
+
 
 @Component({
   selector: 'app-movie-list',
@@ -12,21 +12,35 @@ import {Movie} from '../services/movie';
 export class MovieListComponent implements OnInit {
 
   movieList: Movie[] = [];
+  page: number;
+  searchValue: string;
+  totalPages: number;
 
-  constructor(
-    private movieService: MovieService
-  ) {
+  constructor(private movieService: MovieService) {
   }
 
   ngOnInit() {
     this.getMovies();
   }
 
-  getMovies(searchValue?: string) {
-    this.movieService.getMovies(searchValue)
+  public getMovies() {
+    this.movieService.getMovies(this.searchValue, this.page)
       .subscribe(
         response => {
-          this.movieList = response;
+          this.movieList = response['results'];
+          this.totalPages = response['total_pages'];
+          this.page = response['page'];
         });
+  }
+
+  public setPage(page: number) {
+    this.page = page;
+    this.getMovies();
+  }
+
+  public setSearchValue(searchValue: string) {
+    this.page = 1;
+    this.searchValue = searchValue;
+    this.getMovies();
   }
 }
