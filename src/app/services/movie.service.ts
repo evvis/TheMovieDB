@@ -14,11 +14,14 @@ export class MovieService {
     private http: Http) {
   }
 
-  public getMovies(searchValue?: string, page?: number): Observable<Movie[]> {
+  public getMovies(searchValue?: string, page?: number, id?: number): Observable<Movie[]> {
     let moviesUrl = `${this.url}movie/popular?api_key=${this.apiKey}&language=en-US&page=${page}`;
 
     if (searchValue) {
       moviesUrl = `${this.url}search/movie?api_key=${this.apiKey}&language=en-US&query=${searchValue}&page=${page}`;
+    }
+    if (id) {
+      moviesUrl = `${this.url}movie/${id}?api_key=${this.apiKey}&language=en-US`;
     }
     return this.getDataByUrl(moviesUrl);
   }

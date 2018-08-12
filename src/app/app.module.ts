@@ -10,6 +10,7 @@ import { MovieCardComponent } from './movie-list/movie-card/movie-card.component
 import { PaginationComponent } from './pagination/pagination.component';
 import { MovieSearchComponent } from './movie-search/movie-search.component';
 import { RouterModule, Routes } from '@angular/router';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
 const appRoutes: Routes = [
   {path: 'home', component: MovieListComponent},
@@ -24,6 +25,7 @@ const appRoutes: Routes = [
     PaginationComponent,
     MovieSearchComponent,
     AppComponent,
+    MovieDetailsComponent,
   ],
   imports: [
     BrowserModule,
