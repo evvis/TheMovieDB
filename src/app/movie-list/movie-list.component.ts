@@ -16,7 +16,9 @@ export class MovieListComponent implements OnInit {
   searchValue: string;
   totalPages: number;
 
-  constructor(private movieService: MovieService) {
+  constructor(
+    private movieService: MovieService,
+  ) {
   }
 
   ngOnInit() {
