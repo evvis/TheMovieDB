@@ -1,3 +1,10 @@
-<p>
-  movie-recommendations works!
-</p>
+<div *ngIf="recommendedMovie.length !== 0">
+  <div class="center-align">
+    You may also be interested in:
+  </div>
+  <app-movie-card *ngFor="let movie of recommendedMovie" [movie]="movie" [routerLink]="['/movie/'+movie.id]" routerLinkActive="active"></app-movie-card>
+</div>
+<div class="center-align" *ngIf="recommendedMovie.length === 0">
+  We have nothing to recommend to you
+  <i class="material-icons">sentiment_neutral</i>
+</div>

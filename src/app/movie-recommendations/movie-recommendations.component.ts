@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute} from '@angular/router';
+import {Movie} from '../services/movie';
+import {MovieService} from '../services/movie.service';
 
 @Component({
   selector: 'app-movie-recommendations',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MovieRecommendationsComponent implements OnInit {
 
-  constructor() { }
+  recommendedMovie: Movie[] = [];
+
+  constructor(
+    private movieService: MovieService,
+    private route: ActivatedRoute,
+  ) { }
 
   ngOnInit() {
+    this.route.params.subscribe(
+      params => {
+        let id = params['id'];
+        if (id) this.getRecommend(id);
+      });
+  }
+
+  public getRecommend(id: number) {
+    this.movieService.getRecommendations(id)
+      .subscribe(response => {
+        this.recommendedMovie = response['results'];
+      });
   }
 
 }
