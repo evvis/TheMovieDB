@@ -14,13 +14,12 @@ export class MovieService {
     private http: Http) {
   }
 
-  public getMovies(searchValue?: string, page?: number, id?: number): Observable<Movie[]> {
+  public getMovies(searchValue?: string, id?: number, page?: number): Observable<Movie[]> {
     let moviesUrl = `${this.url}movie/popular?api_key=${this.apiKey}&language=en-US&page=${page}`;
 
     if (searchValue) {
       moviesUrl = `${this.url}search/movie?api_key=${this.apiKey}&language=en-US&query=${searchValue}&page=${page}`;
-    }
-    if (id) {
+    } else if (id) {
       moviesUrl = `${this.url}movie/${id}?api_key=${this.apiKey}&language=en-US`;
     }
     return this.getDataByUrl(moviesUrl);
@@ -28,6 +27,12 @@ export class MovieService {
 
   private getDataByUrl(url: string): Observable<Movie[]> {
     return this.http.get(url)
+      .map((res) => { return res.json() });
+  }
+
+  public getDetails(id: number) {
+    let detailsUrl = `${this.url}movie/${id}?api_key=${this.apiKey}&language=en-US`;
+    return this.http.get(detailsUrl)
       .map((res) => { return res.json() });
   }
 }

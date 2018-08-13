@@ -15,6 +15,7 @@ import { MovieDetailsComponent } from './movie-details/movie-details.component';
 const appRoutes: Routes = [
   {path: 'home', component: MovieListComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: 'movie/:id', component: MovieDetailsComponent, pathMatch: 'prefix' },
 ];
 
 @NgModule({

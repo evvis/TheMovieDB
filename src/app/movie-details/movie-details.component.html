@@ -1,3 +1,31 @@
-<p>
-  movie-details works!
-</p>
+<div class="card">
+  <div class="row">
+    <div *ngFor="let movie of movie"></div>
+    <div class="col s12 m6 card-image">
+      <img *ngIf="selectedMovie.poster_path" src="https://image.tmdb.org/t/p/w500{{selectedMovie?.poster_path}}">
+    </div>
+    <div class="col s12 m6 dline">
+      <h3> {{ selectedMovie?.title }} </h3>
+      <div>
+        <i *ngFor="let genre of selectedMovie.genres">{{ genre.name }}</i>
+      </div>
+      <span>Overview : {{ selectedMovie?.overview }}</span>
+      <div>
+        <span>Additional information : </span>
+        <a *ngIf="selectedMovie?.imdb_id" href="http://www.imdb.com/title/{{ selectedMovie?.imdb_id }}/">
+          <i>IMDb</i>
+        </a>
+        <a *ngIf="selectedMovie?.homepage" href="{{ selectedMovie?.homepage }}/">
+          <i>WWW</i>
+        </a>
+      </div>
+      <span>Vote average : {{ selectedMovie?.vote_average }}</span>
+      <br>
+      <span>Vote count : {{ selectedMovie?.vote_count }}</span>
+      <br>
+      <span>Popularity : {{ selectedMovie?.popularity | number: '1.0-2' }}</span>
+      <br>
+      <span>Release date : {{ selectedMovie?.release_date }}</span>
+    </div>
+  </div>
+</div>

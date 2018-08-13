@@ -1,7 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {MovieService} from '../services/movie.service';
-import {Movie} from '../services/movie';
-import {Router} from "@angular/router";
+import { Component, OnInit } from '@angular/core';
+import { MovieService } from '../services/movie.service';
+import { Movie } from '../services/movie';
 
 
 @Component({
@@ -19,7 +18,6 @@ export class MovieListComponent implements OnInit {
 
   constructor(
     private movieService: MovieService,
-    private router: Router,
   ) {
   }
 
@@ -46,9 +44,5 @@ export class MovieListComponent implements OnInit {
     this.page = 1;
     this.searchValue = searchValue;
     this.getMovies();
-  }
-
-  onSelect(movie: Movie) {
-    this.router.navigate(['./../movie', movie.id]);
   }
 }

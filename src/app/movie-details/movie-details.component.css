@@ -1,0 +1,23 @@
+.row {
+  padding-top: 0.75rem;
+}
+
+.card {
+  margin: 13px;
+}
+
+.card-image {
+  overflow: hidden;
+  display: inline-block;
+  background-size: cover;
+}
+
+.card-image > img {
+  width: 100%;
+  height: auto;
+}
+
+.dline {
+  line-height: 2rem;
+}
+

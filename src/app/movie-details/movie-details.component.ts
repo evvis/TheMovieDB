@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Movie} from '../services/movie';
-import {ActivatedRoute} from "@angular/router";
-import {MovieService} from "../services/movie.service";
+import { Movie } from '../services/movie';
+import { ActivatedRoute } from '@angular/router';
+import { MovieService } from '../services/movie.service';
 
 @Component({
   selector: 'app-movie-details',
@@ -11,29 +11,24 @@ import {MovieService} from "../services/movie.service";
 export class MovieDetailsComponent implements OnInit {
 
   selectedMovie: Movie;
+  id: number;
 
-  constructor(private movieService: MovieService,
-              private route: ActivatedRoute,) {
-  }
+  constructor(
+    private movieService: MovieService,
+    private route: ActivatedRoute
+  ) {  }
 
   ngOnInit() {
     this.route.params.subscribe(
       params => {
-        const id = params['id'];
+        let id = params['id'];
         if (id) this.getDetails(id);
       });
   }
 
-  public getDetails(id: string) {
-    this.movieService.getMovies(id)
+  public getDetails(id: number) {
+    this.movieService.getDetails(id)
       .subscribe(
-        response => {
-          this.selectedMovie = response['results'];
-        });
-    // this.movieService.getMovies(this.id)
-    //   .subscribe(
-    //     response => this.selectedMovie = response);
-    //     console.log(id);
+        response => this.selectedMovie = response);
   }
-
 }
