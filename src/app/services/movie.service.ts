@@ -33,4 +33,11 @@ export class MovieService {
     return this.http.get(detailsUrl)
       .map((res) => { return res.json() });
   }
+
+  public getRecommendations(id: number) {
+    let recommendUrl = `${this.url}movie/${id}/recommendations?api_key=${this.apiKey}&language=en-US`;
+    return this.http.get(recommendUrl)
+      .map((res) => {return res.json() });
+  }
+
 }

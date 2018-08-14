@@ -12,6 +12,7 @@ import { MovieSearchComponent } from './movie-search/movie-search.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { FavoritesComponent } from './favorites/favorites.component';
+import { MovieRecommendationsComponent } from './movie-recommendations/movie-recommendations.component';
 
 const appRoutes: Routes = [
   {path: 'home', component: MovieListComponent},
@@ -29,6 +30,7 @@ const appRoutes: Routes = [
     AppComponent,
     MovieDetailsComponent,
     FavoritesComponent,
+    MovieRecommendationsComponent,
   ],
   imports: [
     BrowserModule,
