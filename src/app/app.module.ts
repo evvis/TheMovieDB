@@ -11,11 +11,13 @@ import { PaginationComponent } from './pagination/pagination.component';
 import { MovieSearchComponent } from './movie-search/movie-search.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 const appRoutes: Routes = [
   {path: 'home', component: MovieListComponent},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
   { path: 'movie/:id', component: MovieDetailsComponent, pathMatch: 'prefix' },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({
@@ -27,6 +29,7 @@ const appRoutes: Routes = [
     MovieSearchComponent,
     AppComponent,
     MovieDetailsComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     BrowserModule,
