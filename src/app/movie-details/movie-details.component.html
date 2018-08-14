@@ -2,12 +2,12 @@
   <div class="row">
     <div *ngFor="let movie of movie"></div>
     <div class="col s12 m6 card-image">
-      <img *ngIf="selectedMovie.poster_path" src="https://image.tmdb.org/t/p/w500{{selectedMovie?.poster_path}}">
+      <img *ngIf="selectedMovie?.poster_path" src="https://image.tmdb.org/t/p/w500{{selectedMovie?.poster_path}}">
     </div>
     <div class="col s12 m6 dline">
       <h3> {{ selectedMovie?.title }} </h3>
       <div>
-        <i *ngFor="let genre of selectedMovie.genres">{{ genre.name }}</i>
+        <i *ngFor="let genre of selectedMovie?.genres">{{ genre.name }}</i>
       </div>
       <span>Overview : {{ selectedMovie?.overview }}</span>
       <div>
