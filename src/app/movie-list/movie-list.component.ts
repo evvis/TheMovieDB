@@ -1,6 +1,6 @@
-import {Component, OnInit} from '@angular/core';
-import {MovieService} from '../services/movie.service';
-import {Movie} from '../services/movie';
+import { Component, OnInit } from '@angular/core';
+import { MovieService } from '../services/movie.service';
+import { Movie } from '../services/movie';
 
 
 @Component({
@@ -16,7 +16,9 @@ export class MovieListComponent implements OnInit {
   searchValue: string;
   totalPages: number;
 
-  constructor(private movieService: MovieService) {
+  constructor(
+    private movieService: MovieService,
+  ) {
   }
 
   ngOnInit() {

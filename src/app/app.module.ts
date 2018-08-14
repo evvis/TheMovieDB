@@ -9,22 +9,30 @@ import { MovieService } from './services/movie.service';
 import { MovieCardComponent } from './movie-list/movie-card/movie-card.component';
 import { PaginationComponent } from './pagination/pagination.component';
 import { MovieSearchComponent } from './movie-search/movie-search.component';
+import { RouterModule, Routes } from '@angular/router';
+import { MovieDetailsComponent } from './movie-details/movie-details.component';
 
-
+const appRoutes: Routes = [
+  {path: 'home', component: MovieListComponent},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  { path: 'movie/:id', component: MovieDetailsComponent, pathMatch: 'prefix' },
+];
 
 @NgModule({
   declarations: [
-    AppComponent,
     HeaderComponent,
     MovieListComponent,
     MovieCardComponent,
     PaginationComponent,
     MovieSearchComponent,
+    AppComponent,
+    MovieDetailsComponent,
   ],
   imports: [
     BrowserModule,
     HttpModule,
     FormsModule,
+    RouterModule.forRoot(appRoutes)
   ],
   exports: [
   ],

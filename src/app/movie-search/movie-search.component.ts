@@ -15,6 +15,7 @@ export class MovieSearchComponent implements OnInit {
 
   ngOnInit() {
   }
+
   onChange(event: Event) {
     this.searchValue.emit((event.target as HTMLInputElement).value);
   }
