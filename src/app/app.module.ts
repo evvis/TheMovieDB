@@ -11,6 +11,7 @@ import { PaginationComponent } from './pagination/pagination.component';
 import { MovieSearchComponent } from './movie-search/movie-search.component';
 import { RouterModule, Routes } from '@angular/router';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
+import { FavoritesComponent } from './favorites/favorites.component';
 
 const appRoutes: Routes = [
   {path: 'home', component: MovieListComponent},
@@ -27,6 +28,7 @@ const appRoutes: Routes = [
     MovieSearchComponent,
     AppComponent,
     MovieDetailsComponent,
+    FavoritesComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,19 @@
+<div>
+  <div>
+    <i class="material-icons md-light" (click)="getFavoriteId(selectedMovie?.id)">favorite_border</i>
+  </div>
+  <div>
+    <div>
+    </div>
+    <i
+      class="material-icons md-light"
+      [ngClass]="{'addFavorite': check}"
+    >
+      favorite</i>
+    <button (click)="addFavorite(selectedMovie?.id); check = !check">add To Favorite</button>
+    <button (click)="checkFavorite(selectedMovie?.id)">check</button>
+  </div>
+  <div>
+    <button (click)="removeFavorite(selectedMovie?.id)">remove from Favorite</button>
+  </div>
+</div>
