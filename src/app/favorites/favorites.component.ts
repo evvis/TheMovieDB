@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { Movie } from '../services/movie';
 import { Favorite } from '../services/favorites';
 import { MovieService } from '../services/movie.service';
@@ -13,8 +13,7 @@ import { FavoriteService } from '../services/favorites.service';
 export class FavoritesComponent implements OnInit {
   selectedMovie: Movie;
   id: number;
-  private favorite: Favorite;
-
+  favorite: Favorite [];
 
   constructor(
     private movieService: MovieService,
@@ -28,46 +27,27 @@ export class FavoritesComponent implements OnInit {
         if (id) this.getFavoriteId(id);
         console.log('getting id ' + id);
       });
+    this.checkFavoriteId();
   }
 
   getFavoriteId(id: number) {
     this.movieService.getDetails(id)
       .subscribe(
         response => this.selectedMovie = response);
-    console.log('to favorite id ' + id);
   }
 
-  private addFavorite(id: number): void {
+  private addFavorite(id: number) {
     this.favoriteService.addFavorite(id);
-//      this.getFavoriteId(id);
-//      this.check;
-    console.log('addFavorite '+ id);
   }
 
   private removeFavorite(id: number): void {
     this.favoriteService.removeFavorite(id);
-    console.log('removeFavorite ' + id);
   }
 
-  public checkFavorite(id: number): void {
-    let favId = this.favoriteService.checkFavorite(id);
-    console.log('получение из сервиса ' + id);
-    let thisId = this.movieService.getDetails(id);
-    /*        console.log('получение из getDetails ' + id);
-            if (favId == thisId){
-              console.log('MUTCH ' + id);
-            } else {
-              console.log('ups have no id ' + this.selectedMovie.id);
-           }  */  }
-  /*      let favId = this.getFavoriteId(id);
-          console.log(id);}
-        let thatId = this.moviesService.getDetails(id);
-          console.log(id)
-        if favId(id) == thatId(){
-          console.log(favId = thatId);
-        } else {
-          console.log('no mutch id');
-        }
-    }
-  */
+  public checkFavoriteId() {
+    let favoritesId = this.favorite;
+    this.favorite = this.favoriteService.checkFavoriteId();
+    console.log(this.favorite);
+    return favoritesId;
+  }
 }

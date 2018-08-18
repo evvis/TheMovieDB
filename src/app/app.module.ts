@@ -13,6 +13,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { MovieDetailsComponent } from './movie-details/movie-details.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { MovieRecommendationsComponent } from './movie-recommendations/movie-recommendations.component';
+import { FavoriteService } from './services/favorites.service';
 
 const appRoutes: Routes = [
   {path: 'home', component: MovieListComponent},
@@ -41,7 +42,8 @@ const appRoutes: Routes = [
   exports: [
   ],
   providers: [
-    MovieService
+    MovieService,
+    FavoriteService,
   ],
   bootstrap: [AppComponent]
 })
