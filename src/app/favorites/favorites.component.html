@@ -1,12 +1,17 @@
 <!--<div>-->
   <!--<i class="material-icons md-light" (click)="getFavoriteId(selectedMovie?.id)">favorite_border</i>-->
 <!--</div>-->
-<!--<div *ngIf="favorite.id === selectedMovie?.id">-->
+<!--<div *ngFor="let favorite of favorite">-->
+  <!--<ul>-->
+    <!--<li>{{ favorite.id }}</li>-->
+  <!--</ul>-->
+<!--</div>-->
+<div *ngIf="!inFavorite">
   <button (click)="addFavorite(selectedMovie?.id)">add To Favorite</button>
   <button (click)="removeFavorite(selectedMovie?.id)">remove from Favorite</button>
   <button (click)="checkFavoriteId()">check</button>
-<!--</div>-->
-<!--<div *ngIf="favorite.id !== selectedMovie?.id">-->
-  <!--<button (click)="addFavorite(selectedMovie?.id)">add To Favorite</button>-->
-  <!--<button (click)="removeFavorite(selectedMovie?.id)">remove from Favorite</button>-->
-<!--</div>-->
+</div>
+<div *ngIf="inFavorite">
+  <button (click)="addFavorite(selectedMovie?.id)">add To Favorite</button>
+  <button (click)="removeFavorite(selectedMovie?.id)">remove from Favorite</button>
+</div>
