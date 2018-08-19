@@ -15,6 +15,7 @@ export class FavoritesComponent implements OnInit {
   id: number;
   favorite: Favorite[] = [];
   inFavorite: boolean;
+  // inFavorite = [];
 
   constructor(
     private movieService: MovieService,
@@ -46,15 +47,36 @@ export class FavoritesComponent implements OnInit {
     this.favoriteService.removeFavorite(id);
   }
 
+  // public checkFavoriteId()  {
+  //   let favoritesId = this.inFavorite;
+  //   this.inFavorite = this.favoriteService.checkFavoriteId();
+  //   // console.log(this.favorite);
+  //   // this.inFavorite = favoritesId.some((favorite) => favorite.id !== id);
+  //   // console.log(favoritesId);
+  //   console.log(this.inFavorite);
+  //   return this.inFavorite;
+
   public checkFavoriteId(id: number)  {
-    let favoritesId = this.favorite;
-    this.favorite = this.favoriteService.checkFavoriteId();
+    let favorite = this.favorite;
+    // this.favoriteService.checkFavoriteId(id);
+    this.favorite = this.favoriteService.checkFavoriteId(id);
     console.log(this.favorite);
-    if (favoritesId.some((favorite) => favorite.id === id)) {
-      return this.inFavorite = true;
+    if (this.inFavorite = favorite.some((favorite) => favorite.id === id)) {
+      console.log(this.inFavorite);
+      return this.inFavorite;
     } else {
-      return this.inFavorite = false;
+      console.log(this.inFavorite);
+      return this.inFavorite;
     }
+    // return this.inFavorite;
+    // console.log(this.inFavorite);
+
+    // if (favoritesId.filter((favorite) => favorite.id !== id)) {
+    //   console.log(this.inFavorite);
+    //   return this.inFavorite = true;
+    // } else {
+    //   return this.inFavorite = false;
+    // }
     // return favoritesId;
     }
   }

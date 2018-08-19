@@ -6,6 +6,8 @@ export class FavoriteService {
 
   private favorite: Favorite [];
   private id: number;
+  // private inFavorite: Favorite[];
+  public inFavorite: boolean;
 
   constructor() {
   }
@@ -40,13 +42,31 @@ export class FavoriteService {
 
 // Помещение в LocalStorage
 
-  private setLocalStorageFavorites(favorites: Favorite[]): void {
-    localStorage.setItem('favorite', JSON.stringify({favorite: favorites}));
+  private setLocalStorageFavorites(favorite: Favorite[]): void {
+    localStorage.setItem('favorite', JSON.stringify({favorite: favorite}));
 
   }
 
-  public checkFavoriteId(): Favorite [] {
+  // public checkFavoriteId() {
+  //   let favorite = JSON.parse(localStorage.getItem('favorite'));
+  //   favorite = favorite.some((favorite) => favorite.id !== this.id);
+  //   console.log(this.inFavorite);
+  //   return this.inFavorite;
+  // }
+
+  public checkFavoriteId( id: number) {
     let favorite = JSON.parse(localStorage.getItem('favorite'));
     return favorite;
-    }
+  }
+//     favorite.some((favorite) => favorite.id !== id);
+//     console.log(this.inFavorite);
+//     return this.inFavorite;
+// }
+
+  // public checkFavoriteId(id: number): Favorite[] {
+  //   let infavorite = JSON.parse(localStorage.getItem('favorite'));
+  //   infavorite = infavorite.filter((favorite) => favorite.id !== id);
+  //   infavorite.push(this.infavorite);
+  //   return infavorite;
+  // }
 }

@@ -6,12 +6,16 @@
     <!--<li>{{ favorite.id }}</li>-->
   <!--</ul>-->
 <!--</div>-->
-<div *ngIf="!inFavorite">
+<div *ngIf="inFavorite">
+  Есть текущий ID
+  <br>
   <button (click)="addFavorite(selectedMovie?.id)">add To Favorite</button>
   <button (click)="removeFavorite(selectedMovie?.id)">remove from Favorite</button>
   <button (click)="checkFavoriteId()">check</button>
 </div>
-<div *ngIf="inFavorite">
+<div *ngIf="!inFavorite">
+  Нет текущего ID
+  <br>
   <button (click)="addFavorite(selectedMovie?.id)">add To Favorite</button>
   <button (click)="removeFavorite(selectedMovie?.id)">remove from Favorite</button>
 </div>
