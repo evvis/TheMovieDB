@@ -4,6 +4,7 @@ import { Favorite } from '../services/favorites';
 import { MovieService } from '../services/movie.service';
 import { ActivatedRoute } from '@angular/router';
 import { FavoriteService } from '../services/favorites.service';
+import {isBoolean} from "util";
 
 @Component({
   selector: 'app-favorites',
@@ -47,27 +48,19 @@ export class FavoritesComponent implements OnInit {
     this.favoriteService.removeFavorite(id);
   }
 
-  // public checkFavoriteId()  {
-  //   let favoritesId = this.inFavorite;
-  //   this.inFavorite = this.favoriteService.checkFavoriteId();
-  //   // console.log(this.favorite);
-  //   // this.inFavorite = favoritesId.some((favorite) => favorite.id !== id);
-  //   // console.log(favoritesId);
-  //   console.log(this.inFavorite);
-  //   return this.inFavorite;
-
   public checkFavoriteId(id: number)  {
     let favorite = this.favorite;
     // this.favoriteService.checkFavoriteId(id);
     this.favorite = this.favoriteService.checkFavoriteId(id);
     console.log(this.favorite);
-    if (this.inFavorite = favorite.some((favorite) => favorite.id === id)) {
-      console.log(this.inFavorite);
-      return this.inFavorite;
-    } else {
-      console.log(this.inFavorite);
-      return this.inFavorite;
-    }
+    this.inFavorite = favorite.some((favorite) => favorite.id === id);
+    console.log(this.inFavorite);
+    return this.inFavorite;
+
+    // } else {
+    //   console.log(this.inFavorite);
+    //   return this.inFavorite;
+    // }
     // return this.inFavorite;
     // console.log(this.inFavorite);
 

@@ -17,7 +17,7 @@ export class FavoriteService {
   public addFavorite(id: number): void {
     let favorite = new Favorite(id);
     let favorites = this.getFavorites();
-    favorites = favorites.filter((favorites) => favorites.id != id);
+    favorites = favorites.filter((favorites) => favorites.id !== id);
     favorites.push(favorite);
     console.log(id);
 
